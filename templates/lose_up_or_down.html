@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>You Lost</title>
+</head>
+<body style="font-family: Helvetica">
+    <center>
+        <b style="font-size: 150px; color: rgb(255, 130, 130); margin-top: 10%">X</b>
+        <p style="color: black; font-size: 2rem; margin-top: 5%">Unfortunutely, you lost.</p>
+        <p style="width: 50%"><a href="/up_or_down" style="text-decoration: none; color: seagreen">Play Again</a></p>
+        <script>
+            setTimeout(function(){ window.close(); }, 10000);
+        </script>
+    </center>
+    <script>
+        var audio = new Audio('/assets/wrong_answer.mp3');
+        audio.play()
+    </script>
+</body>
+</html>

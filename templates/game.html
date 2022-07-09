@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ game_title }} | The White Casino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;600;700&display=swap');
+        body{
+            font-family: 'Anek Malayalam', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .game-div{
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15);
+            width: 75%;
+            min-height: 600px;
+            border-radius: 15px;
+            min-width: 360px;
+        }
+    </style>
+</head>
+<body>
+    <div style="border-bottom: 1px solid lightgray; box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15);">
+        <img onclick="document.location = '/'" style="padding-left: 50px; width: 250px; padding-top: 5px" src="/assets/logo.png" alt=""/>
+    </div>
+    <br>
+    <center>
+        <iframe class="game-div" src="/{{ game_url }}" frameborder="0"></iframe>
+
+        <br>
+
+        <div class="game-div" style="min-height: 150px; text-align: left; padding: 15px; width: 75%; min-width: 75%">
+            <h1>{{ game_title }}</h1>
+            <p>{{ game_description }}</p>
+        </div>
+        <br>
+        <br>
+    </center>
+</body>
+</html>

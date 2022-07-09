@@ -1,0 +1,13 @@
+aiohttp==3.8.1
+bitarray==2.5.1
+cryptoapis==1.6.0
+cryptography==37.0.2
+ethtoken==0.0.1a4
+flask-bcrypt==1.0.1
+flask-login==0.6.1
+flask-sqlalchemy==2.5.1
+ipfshttpclient==0.8.0a2
+numpy==1.23.0
+pip-chill==1.0.1
+pywallet==0.1.0
+tether==0.1

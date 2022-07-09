@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Limbo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/3ea2aa69a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/limbo-effects.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;600;700&display=swap');
+        body{
+            font-family: 'Anek Malayalam', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        button{
+            border: 1px solid white;
+        }
+        input{
+            float: left;
+        }
+        .br-btw{
+            display: none;
+        }
+
+        @media screen and (max-width: 700px) {
+            .info-cont {
+                display: none;
+            }
+            #anticipated_multiplier{
+                width: 45%;
+                border: 1px solid white;
+                float: none;
+            }
+            #betting_amount{
+                width: 45%;
+                border: 1px solid white;
+                float: none;
+            }
+            button{
+                width: 50vw;
+                color: white;
+                -webkit-appearance: none;
+            }
+            .br-btw{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="confetti-wrapper" style="display: none">
+        <center style="font-size: 2rem; background-color: seagreen; opacity: 0.7">
+            You won!
+        </center>
+    </div>
+    <script src="/static/limbo.js"></script>
+    <script src="/static/limbo-effects.js"></script>
+    <div style="background-color: #7cffcb; background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%); opacity: 0.7; width: 100px; position: absolute; top: 5%; right: 5%; border-radius: 450px; padding: 5px">
+        <span id="account_balance"  style="color: white"></span>
+        <span style="color: white; border-radius: 450px; float: right;">$</span>
+    </div>
+    <center style="position: absolute; bottom: 100px; left: 0; height: fit-content; width: fit-content; right: 0; margin: auto; z-index: 100" id="betting">
+        <input type="text" placeholder="Bet Amount" style="background-color: #444444; color: white; outline: none; font-size: 100%; height: 40px; text-indent: 5px;" id="betting_amount">
+        <input type="text" placeholder="Target Multiplier" style="background-color: #444444; color: white; outline: none; font-size: 100%; height: 40px; text-indent: 5px;" id="anticipated_multiplier">
+        <br class="br-btw">
+        <button style="min-width: 100px; height: 46px; float: right; background-color: rgb(52, 196, 117);" id="start-game-button" onclick="playLimbo()">Go</button>
+        <button style="min-width: 100px; height: 46px; float: right; background-color: rgb(52, 196, 117);" id="start-play-button" onclick="setAutoPlay()">Auto Play</button>
+        <button style="min-width: 100px; height: 46px; float: right; background-color: rgb(52, 196, 117); display: none" id="pause-play-button" onclick="stopAutoPlay()">Stop Auto Play</button>
+    </center>
+    <div>
+        <div style="float: left; font-size: 2rem; position: absolute; margin: auto; left: 0; bottom: 0; right: 0; width: fit-content; height: 700px; z-index: -1">
+        </div>
+        <div style="position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0; width: 200px; height: 250px">
+            <div style="width: 200px; height: 250px;">
+              <center style="margin-top: 0; font-size: 5rem" id="multiplier">
+                1.00x
+              </center>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

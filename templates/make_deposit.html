@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Deposit | The White Casino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&ampdisplay=swap&#34");
+         body {
+             font-family: 'DM Sans', sans-serif;
+             transition: background 0.4s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: fit-content; height: fit-content">
+        <img style="width: 150px" src="/assets/logo.png" alt="">
+        <h1>USDT Deposit</h1>
+        <img src="/assets/tether.png" style="width: 30px; float: left" alt="">
+        <span style="float: left; margin-left: 5px; margin-top: 5px">Deposit USDT-TRC20</span>
+        <br>
+        <br style="clear: both">
+        <img src="{{ qrcode(wallet_address, error_correction='H', icon_img='/assets/logo.png')  }}">
+        <br>
+        <p>{{ wallet_address }}</p>
+        <p style="">Only send USDT on Tron network to the address. Send the amount you want to deposit, and it will be available to your account within the next 10 minutes. We use TRC20 to minimise fees.</p>
+        
+    </div>
+</body>
+</html>

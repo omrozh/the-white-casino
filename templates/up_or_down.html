@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Up or Down</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;600;700&display=swap');
+        body{
+            font-family: 'Anek Malayalam', sans-serif;
+        }
+
+        button{
+            float: right;
+            -webkit-appearance: none;
+            min-width: 100px;
+        }
+
+        .current-offer{
+            font-size: 2rem;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            bottom: 100px;
+            right: 0;
+            width: fit-content;
+        }
+
+        @media screen and (max-width: 700px) {
+            .up-or-down {
+                display: none;
+            }
+        }
+        @media screen and (max-width: 375px) {
+            input{
+                width: 80%;
+                -webkit-appearance: none;
+            }
+            button{
+                width: 40%;
+                float: left;
+                color: white;
+                min-width: 0;
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #7cffcb; background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%); opacity: 0.7; width: 100px; position: absolute; top: 5%; right: 5%; border-radius: 450px; padding: 5px">
+        <span id="account_balance"  style="color: white"></span>
+        <span style="color: white; border-radius: 450px; float: right;">$</span>
+    </div>
+    <div style="position: absolute; top: 0; bottom: 0; left: 0; height: fit-content; width: fit-content; right: 0; margin: auto" id="betting">
+        <input type="text" placeholder="Bet Amount" style="background-color: #444444; color: white; outline: none; font-size: 100%; height: 40px; float: left; text-indent: 5px" id="betting_amount">
+        <button style="border: none; height: 46px; background-color: rgb(52, 196, 117)" onclick="initiateUpOrDown()">Start Game</button>
+    </div>
+    <div id="game" style="display: none">
+        <img  onclick="chooseUpOrDown('up')" style="float: left; font-size: 7rem; position: absolute; margin: auto; top: 50px; left: 0; right: 0; width: 85px; z-index: 999;" src="/assets/arrow_up.png">
+        <img onclick="chooseUpOrDown('down')" style="float: left; font-size: 7rem; position: absolute; margin: auto; left: 0; bottom: 50px; right: 0; width: 85px; z-index: 999; transform: rotate(180deg);" src="/assets/arrow_up.png">
+        <div class="up-or-down" style="float: left; font-size: 2rem; position: absolute; margin: auto; left: 0; bottom: 0; right: 0; width: fit-content; height: 700px;">
+
+        </div>
+        <div class="current-offer">
+            <span>Offer: <span id="offer"></span></span>
+        </div>
+        <div style="position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0; width: 200px; height: 250px">
+            <div style="width: 200px; height: 250px; border: 1px solid gray; border-radius: 15px;">
+              <div style="width: 100%; height: 25px; background-color: rgb(52, 196, 117); border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                  &nbsp;
+                  <span onclick="finishUpOrDown()" style="cursor: pointer; margin-top: -15px; position: relative; z-index: 10000">
+                  <center style="margin-top: -20px">
+                        End Game
+                  </center></span></div>
+              <center style="margin-top: 60px; font-size: 5rem" id="number">
+
+              </center>
+          </div>
+        </div>
+    </div>
+    <script src="/static/up_or_down.js"></script>
+</body>
+</html>
