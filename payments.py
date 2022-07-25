@@ -1,5 +1,22 @@
 from tronpy import Tron as wallet_tron
 from tronapi import Tron
+from pywallet import wallet
+from bit import Key
+
+
+def create_btc_wallet():
+    seed = wallet.generate_mnemonic()
+    w = wallet.create_wallet(network="BTC", seed=seed, children=1)
+    return {"address": w["address"], "private_key": w["private_key"], "public_key": w["public_key"]}
+
+
+def make_payment_btc(wallet_transfer_to, wallet_transfer_from, amount, transfer_type="wallet_class"):
+    outputs = [(wallet_transfer_to.address, amount, 'btc')]
+    return Key(wallet_transfer_from.private_key)
+
+
+def get_btc_wallet_balance(pkey):
+    return Key(pkey).get_balance("usd")
 
 
 def create_user_wallet():
@@ -8,7 +25,7 @@ def create_user_wallet():
     return usdt_wallet
 
 
-def make_payment(wallet_transfer_to, wallet_transfer_from, amount):
+def make_payment(wallet_transfer_to, wallet_transfer_from, amount, transfer_type="wallet_class"):
     full_node = 'https://api.trongrid.io'
     solidity_node = 'https://api.trongrid.io'
     event_server = 'https://api.trongrid.io'
@@ -16,7 +33,7 @@ def make_payment(wallet_transfer_to, wallet_transfer_from, amount):
     pkey = wallet_transfer_from.private_key
 
     payments = [
-        [amount, wallet_transfer_to.address],
+        [amount, wallet_transfer_to.address if transfer_type == "wallet_class" else wallet_transfer_to],
     ]
 
     tron = Tron(full_node=full_node,
